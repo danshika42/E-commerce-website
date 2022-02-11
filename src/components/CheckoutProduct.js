@@ -5,7 +5,7 @@ import { useStateValue } from './StateContext';
 
 
 function CheckoutProduct({item}) {
-  const [dispatch]=useStateValue();
+  const [{basket},dispatch]=useStateValue();
   function removeBusket(){
       dispatch({
           type:'REMOVE_FROM_BASKET',

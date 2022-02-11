@@ -1,7 +1,7 @@
 import React from 'react';
 import Product from './Product';
 import './SubHome.css'
-// import {uuid} from 'uuid/v4'
+import { v4 as uuid} from 'uuid'
 
 
 import amazon_thumbnail from '../images/amazon_thumbnail.jpg';
@@ -23,6 +23,7 @@ function SubHome() {
                     rating={5}
                     image={amazon_thumbnail}
                     quantity={1}
+                    key={uuid()}
                 />
                  <Product
                     id="1234b"
@@ -31,6 +32,7 @@ function SubHome() {
                     rating={5}
                     image={amazon_thumbnail}
                     quantity={1}
+                    key={uuid()}
                 />
                 <Product
                     id="1234c"
@@ -39,6 +41,7 @@ function SubHome() {
                     rating={5}
                     image={amazon_thumbnail}
                     quantity={1}
+                    key={uuid()}
                 />
                 <Product
                     id="1234d"
@@ -47,6 +50,7 @@ function SubHome() {
                     rating={5}
                     image={amazon_thumbnail}
                     quantity={1}
+                    key={uuid()}
                 />  
               </div>  
               <div className='lg:grid-cols-4 md:grid-cols-3 grid-cols-2 grid gap-4 mb-4'>
@@ -57,6 +61,7 @@ function SubHome() {
                     rating={5}
                     image={amazon_thumbnail}
                     quantity={1}
+                    key={uuid()}
                 />
                  <Product
                     id="1234f"
@@ -65,6 +70,7 @@ function SubHome() {
                     rating={5}
                     image={amazon_thumbnail}
                     quantity={1}
+                    key={uuid()}
                 />
                 <Product
                     id="1234g"
@@ -73,6 +79,7 @@ function SubHome() {
                     rating={5}
                     image={amazon_thumbnail}
                     quantity={1}
+                    key={uuid()}
                 />
                 <Product
                     id="1234h"
@@ -81,6 +88,7 @@ function SubHome() {
                     rating={5}
                     image={amazon_thumbnail}
                     quantity={1}
+                    key={uuid()}
                 />  
               </div> 
             </div>

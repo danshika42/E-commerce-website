@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStateValue } from './StateContext';
 import CheckoutProduct from './CheckoutProduct';
+import {v4 as uuid} from 'uuid'
 
 
 
@@ -27,7 +28,7 @@ function Checkout() {
               <div className='flex justify-around'>
                 <div>
                 {basket.map(b=>(
-                  <CheckoutProduct item={b} />
+                  <CheckoutProduct item={b} key={uuid()} />
                 ))}
                 </div>
               

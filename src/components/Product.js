@@ -6,7 +6,7 @@ import { useStateValue } from './StateContext';
 
 function Product({id,title,image,price,rating,quantity}) {
   
-  const [dispatch]=useStateValue();
+  const [{basket},dispatch]=useStateValue();
   function addToBasket(){
     dispatch({
       type:'ADD_TO_BASKET',
