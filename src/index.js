@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
-import { StateProvider } from './components/StateProvider';
+import StateContextProvider from './components/StateContext';
 import reducer, { initialState } from './components/Reducer';
 
 
@@ -12,9 +12,9 @@ import reducer, { initialState } from './components/Reducer';
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
-      <StateProvider initialState={initialState} reducer={reducer}>
-       <App />
-      </StateProvider>
+      <StateContextProvider reducer={reducer} initialState={initialState} >
+        <App/>
+      </StateContextProvider>
     </React.StrictMode>
   </BrowserRouter>,
   document.getElementById('root')

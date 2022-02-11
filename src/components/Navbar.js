@@ -1,12 +1,20 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { useStateValue } from './StateContext';
 
 
 function Navbar() {
+  const [{basket}]=useStateValue();
+  let totalQuan=0;
+  basket.map(b=>{
+    totalQuan=totalQuan+b.quantity
+  })
   return (
       <nav className='bg-gray-900'>
         <div className='w-11/12 m-auto flex justify-between items-center h-16'>
-          <img className='w-24 mt-3'  src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"></img>
+          <Link to='/'>
+           <img className='w-24 mt-3'  src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"></img>
+          </Link>
           <div className='flex justify-evenly w-10/12 items-center text-white'>
               <div className='lg:w-9/12 w-7/12 relative'>
                 <input className='w-full h-10 rounded-md'></input>
@@ -26,20 +34,13 @@ function Navbar() {
                   <p>& orders</p>
                 </div>
               </Link>
-              <Link to='/'>
-                <div>
-                  <p className='text-[.75rem] opacity-60'>Your</p>
-                  <p>Prime</p>
-                </div>
-              </Link>
               <Link to='/checkout'>
                 <i className='fas fa-shopping-cart mr-2'></i>
-                <span>2</span>
+                <span>{totalQuan}</span>
               </Link>
           </div>
         </div>
       </nav>
   );
 }
-
 export default Navbar;

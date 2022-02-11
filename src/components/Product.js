@@ -1,22 +1,26 @@
 import React from 'react';
 import product1 from '../images/product1.jpg';
-import { useStateValue } from './StateProvider';
+import { useStateValue } from './StateContext';
+// import { useStateValue } from './StateProvider';
 
 
-function Product({id,title,image,price,rating}) {
-  const [{basket},dispatch]=useStateValue();
-  console.log('basket content',basket);
-  const addToBasket=()=>{
+function Product({id,title,image,price,rating,quantity}) {
+  
+  const [dispatch]=useStateValue();
+  function addToBasket(){
     dispatch({
       type:'ADD_TO_BASKET',
       item:{
         id:id,
         title:title,
+        image:image,
         price:price,
-        rating:rating
+        rating:rating,
+        quantity:quantity
       }
     })
   }
+
   return (
     <div className='border border-gray-300 bg-white px-6 py-2 xl:w-[240px] lg:w-[220px]  rounded-md'>
         <div className=''>
@@ -34,7 +38,7 @@ function Product({id,title,image,price,rating}) {
         <div className='w-full' >
           <img className='m-auto' src={product1}></img>
         </div>
-        <button onClick={addToBasket} className='bg-[#f0c137] rounded-sm border border-[#cca01b] py-1 w-full'>Add to basket</button>
+        <button onClick={addToBasket}  className='bg-[#f0c137] rounded-sm border border-[#cca01b] py-1 w-full'>Add to basket</button>
     </div>
   );
 }
