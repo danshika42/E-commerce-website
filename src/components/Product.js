@@ -38,7 +38,7 @@ function Product({id,title,image,price,rating,quantity}) {
         <div className='w-full' >
           <img className='m-auto' src={product1}></img>
         </div>
-        <button onClick={addToBasket}  className='bg-[#f0c137] rounded-sm border border-[#cca01b] py-1 w-full'>Add to basket</button>
+        <button onClick={addToBasket}  className='bg-yellow-dusk rounded-sm border border-yellow-dark py-1 w-full'>Add to basket</button>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Checkout from './components/Checkout';
 import Navbar from './components/Navbar';
 import SubHome from './components/SubHome';
+import WishList from './components/WishList';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element={<><Navbar/><SubHome/></>} />
         <Route path='/login' element={<Login/>} />
+        <Route path='/wishlist' element={<><Navbar/><WishList/></>} />
         <Route path='/checkout' element={<><Navbar/><Checkout/></>}/>
       </Routes>
     </div>
