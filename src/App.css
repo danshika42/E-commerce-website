@@ -2,6 +2,7 @@
   margin: 0;
 }
 .App{
-  max-width: 1380px;
+  max-width: 1600px;
+  margin: auto;
   /* background-color: rgb(240, 239, 239); */
 }

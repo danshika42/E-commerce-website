@@ -17,12 +17,18 @@ function ListItem({product,id,listName}) {
     handleToggle();
   }
   return (
-      <div className='mt-2'>
+      <div className='mt-2 flex'>
           {toggle?<EditListItem product={product} id={id} handleToggle={handleToggle} listName={listName}  />:(
           <>
-          {product}
-          <button onClick={editListItem} className='mr-3 text-lg ml-4'><i class="fa-solid fa-pen"></i></button>
-          <button onClick={deleteFromList} className='text-lg'><i class="fa-solid fa-trash"></i></button>
+          <div className='w-48'>
+            <span>
+            {product}
+            </span>
+          </div>
+         
+          
+          <button onClick={editListItem} className='mr-3  ml-4'><i className="fa-solid fa-pen-to-square"></i></button>
+          <button onClick={deleteFromList} ><i className="fa-solid fa-trash"></i></button>
           </>
           )}
       </div>

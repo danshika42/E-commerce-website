@@ -30,7 +30,7 @@ function WishList() {
                 })
             }}>
                 <input value={value} onChange={(e)=>handleValue(e)} required  className='border border-gray-300 rounded py-1 px-2 sm:w-80 w-8/12 mb-4 mr-2' placeholder='name of list'></input>
-                <button className='bg-yellow-dusk rounded border border-yellow-dark  p-1 hover:bg-success hover:border-success '>Create a list</button>
+                <button className='bg-yellow-dusk rounded p-1'>Create a list</button>
             </form >
             <div>
                 {

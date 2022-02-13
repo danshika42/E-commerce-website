@@ -1,7 +1,8 @@
 export const initialState= { 
     basket:[],
     total:0,
-    list:[]
+    list:[],
+    search:''
 };
 
  
@@ -102,6 +103,17 @@ const reducer=(state,action)=>{
                     listItem
                     )}:l
                 )
+            }
+        case 'UPDATE_SEARCH' :
+            console.log("update");
+            return {
+                ...state,
+                search:action.value
+            }
+        case 'CLEAR_SEARCH' :
+            return {
+                ...state,
+                search:''
             }
         default:
             return state;

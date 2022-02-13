@@ -18,10 +18,10 @@ function List({name,items}) {
      })
   }
   return (
-      <div className='flex flex-col justify-center items-start border border-gray-300 sm:w-80 w-full p-5 rounded mt-4'>
+      <div className='flex flex-col justify-center items-start sm:w-80 w-full p-5 rounded mt-4'>
           <div className='mb-4'>
             <span className='text-3xl font-bold'>{name}</span>
-            <button onClick={deleteList}  className='bg-yellow-dusk rounded border border-yellow-dark py-1 px-1 ml-4 hover:bg-danger hover:border-danger'>Delete list</button>
+            <button onClick={deleteList}  className='border border-yellow-dusk text-yellow-dark shadow rounded  py-1 px-1 ml-4'>Delete list</button>
           </div>
          
           <form onSubmit={e=>{
@@ -34,7 +34,7 @@ function List({name,items}) {
               reset();
            }}>
             <input value={value} required onChange={e=>handleValue(e)} className='border border-gray-300 rounded p-1 w-40 mr-2'></input>
-            <button  className='bg-yellow-dusk rounded-sm border border-yellow-dark p-1 hover:bg-success hover:border-success'>Add to list</button>
+            <button  className='font-semibold p-1'>Add to list</button>
           </form>
           
            <ol>

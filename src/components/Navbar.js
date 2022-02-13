@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import { useStateValue } from './StateContext';
 import Amazon_nav_logo from '../images/Amazon_navbar_logo.png'
+import useInputState from './Custom_Hooks/useInputState';
 
 
 function Navbar() {
-  const [{basket}]=useStateValue();
+  const [{basket,search},dispatch]=useStateValue();
+ 
   let totalQuan=0;
   basket.map(b=>{
     totalQuan=totalQuan+b.quantity
   })
+
+  const [value,handleChange,reset]=useInputState(search);
+  
+  function clearSearch(){
+    dispatch({
+      type:'CLEAR_SEARCH',
+    })
+    reset();
+  }
+ 
+  useEffect(()=>{
+    dispatch({
+      type:'UPDATE_SEARCH',
+      value:value
+    })
+  },[value])
+
   return (
       <nav className='bg-gray-900'>
         <div className='w-11/12 m-auto flex justify-evenly items-center h-16'>
@@ -18,12 +37,24 @@ function Navbar() {
           </Link>
           <div className='flex justify-evenly w-11/12 items-center text-white'>
               <div className='lg:w-9/12 md:w-8/12 w-7/12 relative'>
-                <form>
-                  <input className='w-full h-10 rounded-md'></input>
+                <form onSubmit={(e)=>{
+                  e.preventDefault();
+                  dispatch({
+                    type:'UPDATE_SEARCH',
+                    value:value
+                  })
+                }}
+                 className='flex items-center'>
+                  <input value={value} onChange={handleChange} className='text-black p-2 w-full h-10 rounded-md'></input>
+                  {
+                  value!=''? 
+                  (<i onClick={clearSearch} class="fa-solid fa-xmark text-gray-800 z-index-5 right-12 text-lg cursor-pointer absolute"></i>):
+                  <></>
+                  }
+                  <button className='absolute rounded-tr rounded-br w-8 h-full flex justify-center items-center bg-yellow-dusk hover:bg-yellow-400 top-0 right-0'>
+                   <i className='fas fa-search text-xl text-slate-800'></i>
+                  </button>
                 </form>
-                <div className='absolute rounded-tr rounded-br w-8 h-full flex justify-center items-center bg-yellow-dusk hover:bg-yellow-400 cursor-pointer  top-0 right-0'>
-                  <i className='fas fa-search text-xl text-slate-800'></i>
-                </div>
               </div>
               <Link to='/login'>
                 <div>

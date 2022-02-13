@@ -20,7 +20,7 @@ function EditListItem({product,id,handleToggle,listName}) {
               })
               handleToggle();
           }}>
-            <input className='border border-gray-300 rounded p-1 w-44 mr-2' value={value} onChange={handleChange} />
+            <input className='border border-gray-300 rounded p-1 w-56 mr-2' value={value} onChange={handleChange} />
             <button onclick={()=>{ dispatch({
                 type:'EDIT_LIST_ITEM',
                 items:{
@@ -29,7 +29,7 @@ function EditListItem({product,id,handleToggle,listName}) {
                     listName:listName
                 }
               });
-              handleToggle() }} className='bg-yellow-dusk rounded-sm border border-yellow-dark p-1 hover:bg-success hover:border-success'>Save</button>
+              handleToggle() }} className='font-bold text-lg ml-1'><i className="fa-solid fa-check"></i></button>
           </form>
       </div>
   );

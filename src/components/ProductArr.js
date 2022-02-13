@@ -4,7 +4,7 @@ import amazon_thumbnail from '../images/amazon_thumbnail.jpg';
 const PRODUCT_ARR=[
     {
       id:uuid(),
-      title:'Spark 8T',
+      title:'ABccSpark 1T',
       price:11.96,
       rating:5,
       image:amazon_thumbnail,
@@ -12,7 +12,7 @@ const PRODUCT_ARR=[
     },
     {
       id:uuid(),
-      title:'Spark 8T',
+      title:'BchdSpark 2T',
       price:11.96,
       rating:5,
       image:amazon_thumbnail,
@@ -20,7 +20,7 @@ const PRODUCT_ARR=[
     }, 
     {
       id:uuid(),
-      title:'Spark 8T',
+      title:'PoeSpark 3T',
       price:11.96,
       rating:5,
       image:amazon_thumbnail,
@@ -28,7 +28,7 @@ const PRODUCT_ARR=[
     },
     {
       id:uuid(),
-      title:'Spark 8T',
+      title:'IPHONE12',
       price:11.96,
       rating:5,
       image:amazon_thumbnail,
