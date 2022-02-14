@@ -31,7 +31,7 @@ function Navbar() {
 
   return (
       <nav className='bg-gray-900'>
-        <div className='w-11/12 m-auto flex sm:flex-row flex-col justify-evenly items-center sm:h-16 h-36'>
+        <div className='w-11/12 m-auto flex sm:flex-row flex-col justify-evenly items-center sm:h-16 h-36 sm:pb-0 pb-2'>
           <Link to='/'>
            <img className='w-24 mt-3'  src={Amazon_nav_logo}></img>
           </Link>
@@ -56,7 +56,7 @@ function Navbar() {
                     </button>
                   </form>
               </div>
-              <div className='flex sm:w-4/12 w-2/4 justify-evenly items-center sm:mb-0 mb-2'>
+              <div className='flex sm:w-4/12 w-10/12 justify-evenly items-center sm:mb-0 mb-2'>
                 <Link to='/login'>
                 <i className="fa-solid fa-circle-user sm:hidden block"></i>
                   <div className='hidden sm:block'>
