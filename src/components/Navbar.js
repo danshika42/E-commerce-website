@@ -36,7 +36,7 @@ function Navbar() {
            <img className='w-24 mt-3'  src={Amazon_nav_logo}></img>
           </Link>
           <div className='flex sm:flex-row flex-col-reverse justify-evenly w-10/12 items-center text-white'>
-              <div className='lg:w-9/12 md:w-8/12 w-7/12 relative'>
+              <div className='lg:w-9/12 md:w-8/12 sm:w-7/12 w-full relative'>
                   <form onSubmit={(e)=>{
                     e.preventDefault();
                     dispatch({
