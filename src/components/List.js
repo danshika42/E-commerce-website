@@ -21,7 +21,7 @@ function List({name,items}) {
       <div className='flex flex-col justify-center items-start sm:w-80 w-full p-5 rounded mt-4'>
           <div className='mb-4'>
             <span className='text-3xl font-bold'>{name}</span>
-            <button onClick={deleteList}  className='border border-yellow-dusk text-yellow-dark shadow rounded  py-1 px-1 ml-4'>Delete list</button>
+            <button onClick={deleteList}  className='border border-yellow-dusk text-yellow-dark rounded  py-1 px-1 ml-4'>Delete list</button>
           </div>
          
           <form onSubmit={e=>{
