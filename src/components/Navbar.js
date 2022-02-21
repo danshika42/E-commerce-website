@@ -3,10 +3,15 @@ import {Link} from 'react-router-dom';
 import { useStateValue } from './StateContext';
 import Amazon_nav_logo from '../images/Amazon_navbar_logo.png'
 import useInputState from './Custom_Hooks/useInputState';
+import { auth } from './Firebase';
+import { signOut } from 'firebase/auth';
 
 
 function Navbar() {
-  const [{basket,search},dispatch]=useStateValue();
+  const logOut=async ()=>{
+    await signOut(auth);
+  }
+  const [{basket,search,nameReducer},dispatch]=useStateValue();
  
   let totalQuan=0;
   basket.map(b=>{
@@ -47,7 +52,7 @@ function Navbar() {
                   className='flex items-center'>
                     <input value={value} onChange={handleChange} className='text-black p-2 w-full h-10 rounded-md'></input>
                     {
-                    value!=''? 
+                    value!==''? 
                     (<i onClick={clearSearch} class="fa-solid fa-xmark text-gray-800 z-index-5 right-12 text-lg cursor-pointer absolute"></i>):
                     <></>
                     }
@@ -60,8 +65,8 @@ function Navbar() {
                 <Link to='/login'>
                 <i className="fa-solid fa-circle-user sm:hidden block"></i>
                   <div className='hidden sm:block'>
-                    <p className='text-[.75rem] opacity-60'>Hello, user</p>
-                    <p>Sign in</p>
+                    <p className='text-[.75rem] opacity-60'>Hello, {nameReducer}</p>
+                    <p onClick={logOut}>Sign out</p>
                   </div>
                 </Link>
                 <Link to='/wishlist'>

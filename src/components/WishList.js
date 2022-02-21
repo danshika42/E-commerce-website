@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import List from './List';
 import { useStateValue } from './StateContext';
-import {v4 as uuid} from 'uuid';
 import useInputState from './Custom_Hooks/useInputState';
 import swal from 'sweetalert';
 

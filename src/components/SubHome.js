@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Product from './Product';
 import './SubHome.css'
 import { v4 as uuid} from 'uuid'
@@ -9,6 +9,7 @@ import { useStateValue } from './StateContext';
 
 function SubHome() {
   const [{search}]=useStateValue();
+  // const [toggle,setToggle]=useState(false);
   return (
         <div className=''>
             <div className='bg-img z-0'>
@@ -46,7 +47,14 @@ function SubHome() {
                     })
                   )
                 }
-
+                {/* {
+                  !toggle?(
+                    <div>
+                      <h5>No results for {search}.</h5>
+                      <p>Try checking your spelling or use more general terms</p>
+                    </div>
+                  ):<></>
+                } */}
                
               </div> 
             </div>

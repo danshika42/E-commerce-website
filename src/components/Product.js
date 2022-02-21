@@ -1,7 +1,6 @@
 import React from 'react';
-import product1 from '../images/product1.jpg';
+import { Link } from 'react-router-dom';
 import { useStateValue } from './StateContext';
-// import { useStateValue } from './StateProvider';
 
 
 function Product({id,title,image,price,rating,quantity}) {
@@ -23,6 +22,7 @@ function Product({id,title,image,price,rating,quantity}) {
 
   return (
     <div className='border border-gray-300 bg-white px-6 py-2 xl:w-[240px] lg:w-[220px]  rounded-md'>
+      <Link to='singleProduct' state={{id:id,title:title,image:image,price:price,quantity:quantity,rating:rating}}  >
         <div className=''>
             <p className='font-bold text-xl'>{title}</p>
             <p>
@@ -36,8 +36,9 @@ function Product({id,title,image,price,rating,quantity}) {
             </div>
         </div>
         <div className='w-full' >
-          <img className='m-auto' src={product1}></img>
+          <img className='m-auto' src={image}></img>
         </div>
+        </Link>
         <button onClick={addToBasket}  className='bg-yellow-dusk rounded-sm border border-yellow-dark py-1 w-full'>Add to basket</button>
     </div>
   );

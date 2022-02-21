@@ -1,69 +1,75 @@
 import { v4 as uuid} from 'uuid'
-import amazon_thumbnail from '../images/amazon_thumbnail.jpg';
+import product1 from '../images/product1.jpg';
+import speaker from '../images/speaker.jpg';
+import bulb from '../images/bulb.jpg';
+import camera from '../images/camera.jpg';
+import watch from '../images/watch.jpg';
+import macbook from '../images/macbook.jpg';
+
 
 const PRODUCT_ARR=[
     {
       id:uuid(),
-      title:'ABccSpark 1T',
-      price:11.96,
+      title:'BSpark 1T',
+      price:30,
       rating:5,
-      image:amazon_thumbnail,
+      image:product1,
       quantity:1,
     },
     {
       id:uuid(),
-      title:'BchdSpark 2T',
-      price:11.96,
-      rating:5,
-      image:amazon_thumbnail,
+      title:'ASpark 2T',
+      price:5,
+      rating:4,
+      image:product1,
       quantity:1,
     }, 
     {
       id:uuid(),
-      title:'PoeSpark 3T',
-      price:11.96,
+      title:'Spark 3T',
+      price:100,
       rating:5,
-      image:amazon_thumbnail,
+      image:product1,
       quantity:1,
     },
     {
       id:uuid(),
-      title:'IPHONE12',
-      price:11.96,
+      title:'Camera',
+      price:10,
       rating:5,
-      image:amazon_thumbnail,
+      image:camera,
       quantity:1,
     },
     {
       id:uuid(),
-      title:'Spark 8T',
-      price:11.96,
-      rating:5,
-      image:amazon_thumbnail,
+      title:'LED Bulbs',
+      price:1,
+      rating:1,
+      image:speaker,
       quantity:1,
     },
     {
       id:uuid(),
-      title:'Spark 8T',
-      price:11.96,
+      title:'Watch',
+      price:5,
       rating:5,
-      image:amazon_thumbnail,
+      image:watch,
       quantity:1,
     },
     {
       id:uuid(),
-      title:'Spark 8T',
-      price:11.96,
-      rating:5,
-      image:amazon_thumbnail,
+      title:'LED Smart bulb',
+      price:80,
+      rating:3,
+      image:bulb,
       quantity:1,
     },
     {
       id:uuid(),
-      title:'Spark 8T',
-      price:11.96,
+      title:'MacBook Air',
+      price:200,
       rating:5,
-      image:amazon_thumbnail,
+      image:macbook,
       quantity:1,
     }
 ]

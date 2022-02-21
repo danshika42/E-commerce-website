@@ -2,7 +2,8 @@ export const initialState= {
     basket:[],
     total:0,
     list:[],
-    search:''
+    search:'',
+    nameReducer:""
 };
 
  
@@ -33,7 +34,7 @@ const reducer=(state,action)=>{
                 ...state,
                 basket:[
                     ...state.basket.filter(b=>(
-                        b.id!=action.item.id
+                        b.id!==action.item.id
                     ))
                 ],
                 total:state.total-action.item.quantity*action.item.price
@@ -74,7 +75,7 @@ const reducer=(state,action)=>{
             return {
                     ...state,
                     list:state.list.filter(l=>(
-                        l.name!=action.listName
+                        l.name!==action.listName
                       )
                     )
             
@@ -90,7 +91,7 @@ const reducer=(state,action)=>{
             return{
                 ...state,
                 list:state.list.map(l=>(l.name===action.listName)?
-                    {...l,items:l.items.filter(listItem=>(listItem.id!=action.id))}:l
+                    {...l,items:l.items.filter(listItem=>(listItem.id!==action.id))}:l
                 )
             }
         case 'EDIT_LIST_ITEM' :
@@ -114,6 +115,11 @@ const reducer=(state,action)=>{
             return {
                 ...state,
                 search:''
+            }
+        case 'UPDATE_NAME' :
+            return {
+                ...state,
+                nameReducer:action.name
             }
         default:
             return state;

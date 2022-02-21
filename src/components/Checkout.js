@@ -8,10 +8,12 @@ import {v4 as uuid} from 'uuid'
 
 function Checkout() {
   const [{basket,total}]=useStateValue();
+  
   let totalQuan=0;
   basket.map(b=>{
     totalQuan=totalQuan+b.quantity
   })
+  
   return (
     <div>
            {
@@ -33,7 +35,7 @@ function Checkout() {
                 </div>
               
                 <div className='text-xl sm:mt-4 mt-8'>
-                 <span className='p-3'>Subtotal ({totalQuan} {totalQuan==1?`item`:`items`}): </span>
+                 <span className='p-3'>Subtotal ({totalQuan} {totalQuan===1?`item`:`items`}): </span>
                  <span className='font-bold'>${total.toFixed(2)}</span>
                 </div>
                </div>
