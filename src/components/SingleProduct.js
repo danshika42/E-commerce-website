@@ -22,7 +22,7 @@ function SingleProduct() {
           })
         }
         return (
-              <div className='flex  m-10  items-center '>
+              <div className='sm:flex block  m-10  items-center'>
                 <div className="fluid__image-container">
                     <ReactImageMagnify {...{
                          smallImage: {
@@ -43,7 +43,7 @@ function SingleProduct() {
                         shouldUsePositiveSpaceLens: true
                     }} />
                 </div>
-                <div className='ml-16'>
+                <div className='sm:ml-16 ml-0'>
                     <p className='font-bold text-xl md:text-4xl'>{title}</p>
                     <p className='md:text-2xl text-lg'>
                         <small>$</small>
