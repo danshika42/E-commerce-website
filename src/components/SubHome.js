@@ -15,7 +15,7 @@ function SubHome() {
             <div className='bg-img z-0'>
             </div>
 
-            <div className='mt-[-460px] z-10 w-10/12 m-auto'>
+            <div className='sm:mt-[-460px] mt-[-600px]  z-10 w-10/12 m-auto'>
               <div className='lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 grid gap-4 mb-4'>
 
                 {

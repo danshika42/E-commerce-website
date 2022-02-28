@@ -28,9 +28,9 @@ function Login() {
         <h1 className='text-2xl font-bold mb-3'>Sign in</h1>
         {/* <form className='flex flex-col justify-evenly'> */}
             <h1 className='font-semibold text-sm'>E-mail</h1>
-            <input  required value={loginEmail} onChange={(e)=>setLoginEmail(e.target.value)}  type='email' className='border border-gray-300 rounded-md py-1 mb-4'/>
+            <input  required value={loginEmail} onChange={(e)=>setLoginEmail(e.target.value)}  type='email' className='border border-gray-300 rounded-md py-1 px-2 mb-4'/>
             <h1 className='font-semibold text-sm'>Password</h1>
-            <input required value={loginPassword} onChange={(e)=>setLoginPassword(e.target.value)}  type='password' className='border border-gray-300 rounded-md py-1'/><br/>
+            <input required value={loginPassword} onChange={(e)=>setLoginPassword(e.target.value)}  type='password' className='border border-gray-300 rounded-md py-1 px-2'/><br/>
             <button onClick={signin} className='bg-yellow-dusk rounded-sm border border-yellow-dark py-1 px-2 mb-6'>Sign in</button>
         {/* </form> */}
         <p className='text-[0.765rem]'>By signing in, you agree to Amazon's Terms and Conditions</p>

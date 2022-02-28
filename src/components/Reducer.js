@@ -3,7 +3,8 @@ export const initialState= {
     total:0,
     list:[],
     search:'',
-    nameReducer:""
+    nameReducer:"",
+    isLoggedIn:false
 };
 
  
@@ -120,6 +121,11 @@ const reducer=(state,action)=>{
             return {
                 ...state,
                 nameReducer:action.name
+            }
+        case 'SET_LOGGEDIN':
+            return {
+                ...state,
+                isLoggedIn:true
             }
         default:
             return state;

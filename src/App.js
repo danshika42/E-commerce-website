@@ -12,12 +12,13 @@ import { useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 
 function App() {
-  const [isLoggedin,setIsLogedin]=useState(false);
+  const [isLoggedin,setIsLoggedin]=useState(false);
+  
   onAuthStateChanged(auth,(currentuser)=>{
     if(currentuser){
-      setIsLogedin(true);
+      setIsLoggedin(true);
     }else{
-      setIsLogedin(false)
+      setIsLoggedin(false)
     }
   })
 

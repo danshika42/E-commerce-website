@@ -62,13 +62,11 @@ function Navbar() {
                   </form>
               </div>
               <div className='flex sm:w-4/12 w-10/12 justify-evenly items-center sm:mb-0 mb-2'>
-                <Link to='/login'>
-                <i className="fa-solid fa-circle-user sm:hidden block"></i>
-                  <div className='hidden sm:block'>
+                <i onClick={logOut} class="fa-solid fa-right-from-bracket sm:hidden block"></i>
+                <div className='hidden sm:block'>
                     <p className='text-[.75rem] opacity-60'>Hello, {nameReducer}</p>
-                    <p onClick={logOut}>Sign out</p>
-                  </div>
-                </Link>
+                    <p className='cursor-pointer' onClick={logOut}>Sign out</p>
+                </div>
                 <Link to='/wishlist'>
                   <i className="fa-solid fa-list sm:hidden block"></i>  
                   <div className='hidden sm:block'>
