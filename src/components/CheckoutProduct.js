@@ -56,10 +56,11 @@ function CheckoutProduct({item}) {
             </div>
         </div>
        
-        <div className='w-full' >
+        <div className='max-w-[284px] max-h-[272px] m-auto' >
           <img className='m-auto' src={item.image}></img>
         </div>
-        </Link>
+
+      </Link>
         <button className='mr-3 mt-3 font-bold text-lg' onClick={increaseQuant}><i class="fa-solid fa-plus"></i></button>
               <span className='font-semibold text-xl'>{item.quantity} {item.quantity===1?`item`:`items`}</span>
         <button className='ml-3 mb-3 font-bold text-lg' onClick={decreaseQuant}><i class="fa-solid fa-minus"></i></button>

@@ -35,7 +35,7 @@ function Product({id,title,image,price,rating,quantity}) {
                 }
             </div>
         </div>
-        <div className='w-full' >
+        <div className='max-w-[288px] max-h-[272px] m-auto' >
           <img className='m-auto' src={image}></img>
         </div>
         </Link>
