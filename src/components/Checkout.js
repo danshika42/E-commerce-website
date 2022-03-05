@@ -28,57 +28,71 @@ function Checkout() {
                 </div>
               ):
               (
-              <div className='sm:flex justify-around'>
+              <div className='sm:flex justify-around w-full lg:w-3/4 m-auto'>
                 <div>
                 {basket.map(b=>(
                   <CheckoutProduct item={b} key={uuid()} />
                 ))}
                 </div>
               
-                <div className='text-xl sm:mt-4 mt-8'>
+                <div className='text-xl sm:mt-4 mt-8 ml-2'>
                   <span className='p-3'>Subtotal ({totalQuan} {totalQuan===1?`item`:`items`}): </span>
                   <span className='font-bold'>${total.toFixed(2)}</span>
                   
-                  <div className='mt-4'>
-                      <GooglePayButton
-                            environment="TEST"
-                            buttonColor="white"
-                            buttonType="checkout"
-                            paymentRequest={{
-                              apiVersion: 2,
-                              apiVersionMinor: 0,
-                              allowedPaymentMethods: [
-                                {
-                                  type: 'CARD',
+                  <div className='mt-4 ml-2'>
+                      
+                        <GooglePayButton
+                          environment="TEST"
+                          paymentRequest={{
+                            apiVersion: 2,
+                            apiVersionMinor: 0,
+                            allowedPaymentMethods: [
+                              {
+                                type: 'CARD',
+                                parameters: {
+                                  allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                                  allowedCardNetworks: ['MASTERCARD', 'VISA'],
+                                },
+                                tokenizationSpecification: {
+                                  type: 'PAYMENT_GATEWAY',
                                   parameters: {
-                                    allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-                                    allowedCardNetworks: ['MASTERCARD', 'VISA'],
-                                  },
-                                  tokenizationSpecification: {
-                                    type: 'PAYMENT_GATEWAY',
-                                    parameters: {
-                                      gateway: 'example',
-                                      gatewayMerchantId: 'exampleGatewayMerchantId',
-                                    },
+                                    gateway: 'example',
+                                    gatewayMerchantId: 'exampleGatewayMerchantId',
                                   },
                                 },
-                              ],
-                              merchantInfo: {
-                                merchantId: '12345678901234567890',
-                                merchantName: 'Demo Merchant',
                               },
-                              transactionInfo: {
-                                totalPriceStatus: 'FINAL',
-                                totalPriceLabel: 'Total',
-                                totalPrice: JSON.stringify(total),
-                                currencyCode: 'USD',
-                                countryCode: 'US',
-                              },
-                            }}
-                            onLoadPaymentData={paymentRequest => {
-                              console.log('load payment data', paymentRequest);
-                            }}
-                      />
+                            ],
+                            merchantInfo: {
+                              merchantId: '12345678901234567890',
+                              merchantName: 'Demo Merchant',
+                            },
+                            transactionInfo: {
+                              totalPriceStatus: 'FINAL',
+                              totalPriceLabel: 'Total',
+                              totalPrice: JSON.stringify(total),
+                              currencyCode: 'USD',
+                              countryCode: 'US',
+                            },
+                            shippingAddressRequired: true,
+                            callbackIntents: ['SHIPPING_ADDRESS', 'PAYMENT_AUTHORIZATION'],
+                          }}
+                          onLoadPaymentData={paymentRequest => {
+                            console.log('Success', paymentRequest);
+                          }}
+                          onPaymentAuthorized={paymentData => {
+                              console.log('Payment Authorised Success', paymentData)
+                              return { transactionState: 'SUCCESS'}
+                            }
+                          }
+                          onPaymentDataChanged={paymentData => {
+                              console.log('On Payment Data Changed', paymentData)
+                              return { }
+                            }
+                          }
+                          existingPaymentMethodRequired='false'
+                          buttonColor='white'
+                          buttonType='checkout'
+                        />
                     </div>
 
                   </div>

@@ -25,7 +25,7 @@ function SingleProduct() {
         }
         return (
               <div className='sm:flex block  m-10  items-center'>
-                <div className="fluid__image-container">
+                <div className="fluid__image-container z-10">
                     <ReactImageMagnify {...{
                          smallImage: {
                             alt: 'Wristwatch by Ted Baker London',
@@ -59,43 +59,58 @@ function SingleProduct() {
                     <button onClick={addToBasket}  className='bg-yellow-dusk rounded-sm border border-yellow-dark py-1 w-full'>Add to basket</button>
                     <div className='mt-4'>
                       <GooglePayButton
-                            environment="TEST"
-                            buttonColor="white"
-                            paymentRequest={{
-                              apiVersion: 2,
-                              apiVersionMinor: 0,
-                              allowedPaymentMethods: [
-                                {
-                                  type: 'CARD',
+                          environment="TEST"
+                          paymentRequest={{
+                            apiVersion: 2,
+                            apiVersionMinor: 0,
+                            allowedPaymentMethods: [
+                              {
+                                type: 'CARD',
+                                parameters: {
+                                  allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                                  allowedCardNetworks: ['MASTERCARD', 'VISA'],
+                                },
+                                tokenizationSpecification: {
+                                  type: 'PAYMENT_GATEWAY',
                                   parameters: {
-                                    allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-                                    allowedCardNetworks: ['MASTERCARD', 'VISA'],
-                                  },
-                                  tokenizationSpecification: {
-                                    type: 'PAYMENT_GATEWAY',
-                                    parameters: {
-                                      gateway: 'example',
-                                      gatewayMerchantId: 'exampleGatewayMerchantId',
-                                    },
+                                    gateway: 'example',
+                                    gatewayMerchantId: 'exampleGatewayMerchantId',
                                   },
                                 },
-                              ],
-                              merchantInfo: {
-                                merchantId: '12345678901234567890',
-                                merchantName: 'Demo Merchant',
                               },
-                              transactionInfo: {
-                                totalPriceStatus: 'FINAL',
-                                totalPriceLabel: 'Total',
-                                totalPrice: JSON.stringify(price),
-                                currencyCode: 'USD',
-                                countryCode: 'US',
-                              },
-                            }}
-                            onLoadPaymentData={paymentRequest => {
-                              console.log('load payment data', paymentRequest);
-                            }}
+                            ],
+                            merchantInfo: {
+                              merchantId: '12345678901234567890',
+                              merchantName: 'Demo Merchant',
+                            },
+                            transactionInfo: {
+                              totalPriceStatus: 'FINAL',
+                              totalPriceLabel: 'Total',
+                              totalPrice:  JSON.stringify(price),
+                              currencyCode: 'USD',
+                              countryCode: 'US',
+                            },
+                            shippingAddressRequired: true,
+                            callbackIntents: ['SHIPPING_ADDRESS', 'PAYMENT_AUTHORIZATION'],
+                          }}
+                          onLoadPaymentData={paymentRequest => {
+                            console.log('Success', paymentRequest);
+                          }}
+                          onPaymentAuthorized={paymentData => {
+                              console.log('Payment Authorised Success', paymentData)
+                              return { transactionState: 'SUCCESS'}
+                            }
+                          }
+                          onPaymentDataChanged={paymentData => {
+                              console.log('On Payment Data Changed', paymentData)
+                              return { }
+                            }
+                          }
+                          existingPaymentMethodRequired='false'
+                          buttonColor='white'
+                          buttonType='Buy'
                       />
+                    
                     </div>
                     
                 </div>

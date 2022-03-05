@@ -40,7 +40,7 @@ function CheckoutProduct({item}) {
   }
 
   return (
-    <div className='border m-4 border-gray-300 bg-white px-6 py-2 xl:w-[240px] lg:w-[220px]  rounded-md'>
+    <div className='border m-4 border-gray-300 bg-white px-6 py-2 lg:w-[320px]  rounded-md'>
       <Link to='/singleProduct' state={item}  >
 
         <div className=''>            
