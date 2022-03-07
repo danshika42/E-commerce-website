@@ -22,7 +22,7 @@ function Product({id,title,image,price,rating,quantity}) {
 
   return (
     <div className='border border-gray-300 bg-white px-6 py-2 xl:w-[240px] lg:w-[220px]  rounded-md'>
-      <Link to='singleProduct' state={{id:id,title:title,image:image,price:price,quantity:quantity,rating:rating}}  >
+      <Link to='/singleProduct' state={{id:id,title:title,image:image,price:price,quantity:quantity,rating:rating}}  >
         <div className=''>
             <p className='font-bold text-xl'>{title}</p>
             <p>
