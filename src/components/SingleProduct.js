@@ -60,6 +60,8 @@ function SingleProduct() {
                     <div className='mt-4'>
                       <GooglePayButton
                           environment="TEST"
+                          className='w-full'
+                          buttonSizeMode='fill'
                           paymentRequest={{
                             apiVersion: 2,
                             apiVersionMinor: 0,

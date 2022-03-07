@@ -28,7 +28,7 @@ function Checkout() {
                 </div>
               ):
               (
-              <div className='sm:flex justify-around w-full lg:w-3/4 m-auto'>
+              <div className='sm:flex justify-around w-full lg:w-3/4 m-auto mb-4'>
                 <div>
                 {basket.map(b=>(
                   <CheckoutProduct item={b} key={uuid()} />
@@ -39,10 +39,12 @@ function Checkout() {
                   <span className='p-3'>Subtotal ({totalQuan} {totalQuan===1?`item`:`items`}): </span>
                   <span className='font-bold'>${total.toFixed(2)}</span>
                   
-                  <div className='mt-4 ml-2'>
+                  <div className='mt-4 ml-2 mr-4'>
                       
                         <GooglePayButton
                           environment="TEST"
+                          className='w-full'
+                          buttonSizeMode='fill'
                           paymentRequest={{
                             apiVersion: 2,
                             apiVersionMinor: 0,
